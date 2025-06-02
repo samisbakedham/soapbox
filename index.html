@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soapbox - Coming Soon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background-color: #F0F4F8; /* Light, calming blue-gray */
+        }
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+        .cta-button {
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #3b82f6; /* Darker blue on hover */
+        }
+        .section-padding {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+        @media (min-width: 768px) {
+            .section-padding {
+                padding-top: 6rem;
+                padding-bottom: 6rem;
+            }
+        }
+        /* Simple placeholder for icons - you can replace with actual SVGs or font icons */
+        .placeholder-icon {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: #e0e0e0;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-weight: bold;
+            color: #757575;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 antialiased">
+
+    <nav class="bg-white shadow-sm fixed w-full z-10 top-0">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-600">Soapbox</a>
+            <div>
+                <a href="#features" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Features</a>
+                <a href="#signup" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium ml-2 cta-button">Get Notified</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-bg pt-32 pb-16 md:pt-40 md:pb-24 text-center">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                Connect Deeper. Grow Stronger.
+            </h1>
+            <h2 class="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
+                Soapbox is the revolutionary iOS app to engage with your church, connect with a vibrant faith community, access 24/7 spiritual guidance, and make your spiritual journey more rewarding.
+            </h2>
+            <div id="signup" class="max-w-md mx-auto">
+                <p class="text-gray-600 mb-3 font-medium">Be the first to know when we launch!</p>
+                <form action="#" method="POST" class="flex flex-col sm:flex-row gap-3">
+                    <input type="email" name="email" placeholder="Enter your email address" required
+                           class="flex-grow px-4 py-3 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none shadow-sm text-gray-900" />
+                    <button type="submit"
+                            class="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold shadow-md cta-button">
+                        Notify Me!
+                    </button>
+                </form>
+                <p class="text-xs text-gray-500 mt-3">No spam, ever. We'll only email you about the Soapbox launch.</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="section-padding bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Rediscover Connection in a Busy World</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-4">
+                In today's fast-paced life, staying consistently connected to your faith community and finding meaningful spiritual support can be a challenge.
+            </p>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-4">
+                Soapbox bridges this gap. We're building a platform that seamlessly integrates into your life, making it easier than ever to attend services, engage with fellow believers, and find guidance whenever you need it.
+            </p>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto font-semibold">
+                For individuals seeking deeper meaning. For churches aiming to connect and grow. Soapbox is for you.
+            </p>
+        </div>
+    </section>
+
+    <section id="features" class="section-padding bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Here's What You Can Look Forward To</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                    <div class="placeholder-icon mx-auto">ATT</div> <h3 class="text-xl font-semibold text-gray-900 mb-2">Attend & Engage, Anywhere</h3>
+                    <p class="text-gray-700">
+                        Check in to local church services or attend virtually. Never miss a sermon or a chance to connect with your home church.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                    <div class="placeholder-icon mx-auto">COM</div> <h3 class="text-xl font-semibold text-gray-900 mb-2">Your Spiritual Community Hub</h3>
+                    <p class="text-gray-700">
+                        Join vibrant discussions, share prayer requests, and build lasting relationships within a dedicated, faith-centered social space.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                    <div class="placeholder-icon mx-auto">24/7</div> <h3 class="text-xl font-semibold text-gray-900 mb-2">24/7 Spiritual Guidance</h3>
+                    <p class="text-gray-700">
+                        Access confidential prayer, pastoral care, and spiritual guidance from vetted pastors and faith leaders, anytime.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                    <div class="placeholder-icon mx-auto">GRW</div> <h3 class="text-xl font-semibold text-gray-900 mb-2">Grow & Get Rewarded</h3>
+                    <p class="text-gray-700">
+                        Make your faith journey interactive! Earn points, unlock achievements, and see your progress for engagement and learning.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-blue-600 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Empowering Churches. Engaging Congregations.</h2>
+            <p class="text-lg max-w-3xl mx-auto mb-8">
+                Soapbox isn't just for individuals. We provide powerful, intuitive tools for churches to expand their reach, deepen member engagement, manage virtual services, facilitate giving, and understand their community's needs better.
+            </p>
+            <button onclick="showChurchLeaderModal()"
+                    class="bg-white text-blue-600 px-8 py-3 rounded-md font-semibold shadow-md hover:bg-gray-100 transition duration-300">
+                Church Leaders: Learn More
+            </button>
+        </div>
+    </section>
+
+    <section class="section-padding bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <blockquote class="text-xl md:text-2xl italic text-gray-700 max-w-3xl mx-auto">
+                "Our vision for Soapbox is to foster a world where everyone can easily access spiritual nourishment, build strong faith communities, and feel supported on their unique journey."
+                <cite class="block not-italic text-base text-gray-600 mt-4">- The Soapbox Team</cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <section class="section-padding hero-bg">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Get Ready! Soapbox is Launching Soon on iOS!</h2>
+            <img src="https://placehold.co/200x60/e0e0e0/757575?text=App+Store+Badge" alt="Coming soon to iOS App Store" class="mx-auto mb-8 h-12 md:h-16" onerror="this.src='https://placehold.co/200x60/cccccc/757575?text=App+Store+Coming+Soon'; this.onerror=null;">
+            <p class="text-lg text-gray-700 mb-6 max-w-xl mx-auto">
+                Don't miss our launch! Sign up now to be the first to know when Soapbox goes live. You'll get exclusive updates, sneak peeks, and maybe even an early bird surprise!
+            </p>
+            <form action="#" method="POST" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+                <input type="email" name="email_final" placeholder="Enter your email address" required
+                       class="flex-grow px-4 py-3 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none shadow-sm text-gray-900" />
+                <button type="submit"
+                        class="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold shadow-md cta-button">
+                    Keep Me Updated!
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-gray-300 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-4">
+                <a href="#" class="px-3 hover:text-white">Privacy Policy</a>
+                <span class="text-gray-500">|</span>
+                <a href="#" class="px-3 hover:text-white">Terms of Service</a>
+            </div>
+            <div class="mb-4">
+                <a href="#" class="px-2 hover:text-white">Facebook</a>
+                <a href="#" class="px-2 hover:text-white">Instagram</a>
+                <a href="#" class="px-2 hover:text-white">X (Twitter)</a>
+            </div>
+            <p>&copy; <span id="currentYear"></span> Soapbox. All Rights Reserved.</p>
+            <p class="text-sm text-gray-500 mt-1">Contact: <a href="mailto:hello@soapboxapp.com" class="hover:text-white">hello@soapboxapp.com</a></p>
+        </div>
+    </footer>
+
+    <div id="churchLeaderModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-white p-8 md:p-12 rounded-lg shadow-2xl max-w-lg w-full transform transition-all scale-95 opacity-0" id="modalDialog">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Church Leader Interest</h3>
+                <button onclick="hideChurchLeaderModal()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <p class="text-gray-700 mb-6">
+                Thank you for your interest! Please provide your details, and we'll reach out with more information on how Soapbox can serve your church.
+            </p>
+            <form action="#" method="POST">
+                <div class="mb-4">
+                    <label for="pastorName" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                    <input type="text" id="pastorName" name="pastorName" required class="w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none shadow-sm text-gray-900">
+                </div>
+                <div class="mb-4">
+                    <label for="churchName" class="block text-sm font-medium text-gray-700 mb-1">Church Name</label>
+                    <input type="text" id="churchName" name="churchName" required class="w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none shadow-sm text-gray-900">
+                </div>
+                <div class="mb-4">
+                    <label for="churchEmail" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                    <input type="email" id="churchEmail" name="churchEmail" required class="w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none shadow-sm text-gray-900">
+                </div>
+                <div class="mb-6">
+                    <label for="churchCityState" class="block text-sm font-medium text-gray-700 mb-1">City / State</label>
+                    <input type="text" id="churchCityState" name="churchCityState" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none shadow-sm text-gray-900">
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white px-6 py-3 rounded-md font-semibold shadow-md cta-button">
+                    Submit Interest
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        const churchLeaderModal = document.getElementById('churchLeaderModal');
+        const modalDialog = document.getElementById('modalDialog');
+
+        function showChurchLeaderModal() {
+            churchLeaderModal.classList.remove('hidden');
+            // Trigger reflow to enable transition
+            churchLeaderModal.offsetHeight;
+            modalDialog.classList.remove('scale-95', 'opacity-0');
+            modalDialog.classList.add('scale-100', 'opacity-100');
+        }
+
+        function hideChurchLeaderModal() {
+            modalDialog.classList.add('scale-95', 'opacity-0');
+            modalDialog.classList.remove('scale-100', 'opacity-100');
+            setTimeout(() => {
+                churchLeaderModal.classList.add('hidden');
+            }, 300); // Match transition duration
+        }
+
+        // Close modal if escape key is pressed
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && !churchLeaderModal.classList.contains('hidden')) {
+                hideChurchLeaderModal();
+            }
+        });
+
+        // Close modal if backdrop is clicked
+        churchLeaderModal.addEventListener('click', function(event) {
+            if (event.target === churchLeaderModal) {
+                hideChurchLeaderModal();
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Calculate offset for fixed navbar
+                    const navbarHeight = document.querySelector('nav').offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
