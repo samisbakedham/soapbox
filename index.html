@@ -3,127 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soapbox - Coming Soon</title>
+    <title>Soapbox - Coming Soon!</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth; /* For smooth scrolling on anchor links */
         }
-        .hero-bg {
-            background-color: #F0F4F8; /* Light, calming blue-gray */
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Indigo to Purple gradient */
         }
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 1rem;
+        .primary-cta-button {
+            background: linear-gradient(to right, #f97316, #ea580c); /* Orange gradient */
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px 0 rgba(249, 115, 22, 0.75);
         }
-        .cta-button {
-            transition: background-color 0.3s ease;
+        .primary-cta-button:hover {
+            background: linear-gradient(to right, #ea580c, #f97316);
+            box-shadow: 0 6px 20px 0 rgba(249, 115, 22, 0.9);
+            transform: translateY(-2px);
         }
-        .cta-button:hover {
-            background-color: #3b82f6; /* Darker blue on hover */
+        .secondary-cta-button {
+            background-color: #6366F1; /* Indigo */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .secondary-cta-button:hover {
+            background-color: #4F46E5; /* Darker Indigo */
+            transform: translateY(-1px);
         }
         .section-padding {
-            padding-top: 4rem;
-            padding-bottom: 4rem;
+            padding-top: 5rem;
+            padding-bottom: 5rem;
         }
         @media (min-width: 768px) {
             .section-padding {
-                padding-top: 6rem;
-                padding-bottom: 6rem;
+                padding-top: 7rem;
+                padding-bottom: 7rem;
             }
         }
-        /* Simple placeholder for icons - you can replace with actual SVGs or font icons */
-        .placeholder-icon {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background-color: #e0e0e0;
-            border-radius: 50%;
+        .feature-card {
+            background-color: white;
+            border-radius: 1rem; /* More rounded */
+            padding: 2rem;
             text-align: center;
-            line-height: 50px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.15), 0 10px 15px -5px rgba(0, 0, 0, 0.05);
+        }
+        .cool-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1.5rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%); /* Light blue gradient */
+            color: white;
+            font-size: 1.8rem;
             font-weight: bold;
-            color: #757575;
-            margin-bottom: 1rem;
+            box-shadow: 0 4px 10px rgba(102, 166, 255, 0.5);
+        }
+        .input-cool {
+            border-radius: 0.5rem;
+            border: 1px solid #D1D5DB;
+            padding: 0.9rem 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .input-cool:focus {
+            border-color: #6366F1; /* Indigo */
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+            outline: none;
+        }
+        .nav-link:hover {
+            color: #6366F1; /* Indigo */
         }
     </style>
 </head>
-<body class="bg-white text-gray-800 antialiased">
+<body class="bg-gray-50 text-gray-800 antialiased">
 
-    <nav class="bg-white shadow-sm fixed w-full z-10 top-0">
+    <nav class="bg-white/80 backdrop-blur-md shadow-md fixed w-full z-20 top-0">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-blue-600">Soapbox</a>
+            <a href="#" class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Soapbox</a>
             <div>
-                <a href="#features" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Features</a>
-                <a href="#signup" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium ml-2 cta-button">Get Notified</a>
+                <a href="#features" class="text-gray-700 nav-link px-3 py-2 rounded-md text-sm font-semibold">Features</a>
+                <a href="#signup" class="secondary-cta-button text-white px-5 py-2.5 rounded-lg text-sm font-semibold ml-3 shadow-md">Get Notified</a>
             </div>
         </div>
     </nav>
 
-    <header class="hero-bg pt-32 pb-16 md:pt-40 md:pb-24 text-center">
+    <header class="hero-gradient pt-36 pb-20 md:pt-48 md:pb-28 text-center text-white">
         <div class="container mx-auto px-6">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                Connect Deeper. Grow Stronger.
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+                Connect Deeper. <span class="block md:inline">Grow Stronger.</span>
             </h1>
-            <h2 class="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
+            <h2 class="text-xl md:text-2xl text-indigo-100 mb-10 max-w-3xl mx-auto">
                 Soapbox is the revolutionary iOS app to engage with your church, connect with a vibrant faith community, access 24/7 spiritual guidance, and make your spiritual journey more rewarding.
             </h2>
-            <div id="signup" class="max-w-md mx-auto">
-                <p class="text-gray-600 mb-3 font-medium">Be the first to know when we launch!</p>
-                <form action="#" method="POST" class="flex flex-col sm:flex-row gap-3">
+            <div id="signup" class="max-w-lg mx-auto">
+                <p class="text-indigo-50 mb-4 font-semibold text-lg">Be the first to experience Soapbox!</p>
+                <form action="#" method="POST" class="flex flex-col sm:flex-row gap-3 items-center">
                     <input type="email" name="email" placeholder="Enter your email address" required
-                           class="flex-grow px-4 py-3 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none shadow-sm text-gray-900" />
+                           class="flex-grow px-4 py-3 input-cool shadow-sm text-gray-900 w-full sm:w-auto" />
                     <button type="submit"
-                            class="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold shadow-md cta-button">
+                            class="primary-cta-button text-white px-8 py-3.5 rounded-lg font-bold shadow-xl w-full sm:w-auto text-base">
                         Notify Me!
                     </button>
                 </form>
-                <p class="text-xs text-gray-500 mt-3">No spam, ever. We'll only email you about the Soapbox launch.</p>
+                <p class="text-xs text-indigo-200 mt-4">No spam, ever. Only launch updates & early bird perks!</p>
             </div>
         </div>
     </header>
 
     <section class="section-padding bg-white">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Rediscover Connection in a Busy World</h2>
-            <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-4">
-                In today's fast-paced life, staying consistently connected to your faith community and finding meaningful spiritual support can be a challenge.
-            </p>
-            <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-4">
-                Soapbox bridges this gap. We're building a platform that seamlessly integrates into your life, making it easier than ever to attend services, engage with fellow believers, and find guidance whenever you need it.
-            </p>
-            <p class="text-lg text-gray-700 max-w-3xl mx-auto font-semibold">
-                For individuals seeking deeper meaning. For churches aiming to connect and grow. Soapbox is for you.
-            </p>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Rediscover Connection in a Busy World</h2>
+            <div class="max-w-3xl mx-auto space-y-5 text-lg text-gray-700">
+                <p>
+                    In today's fast-paced life, staying consistently connected to your faith community and finding meaningful spiritual support can be a challenge.
+                </p>
+                <p>
+                    Soapbox bridges this gap. We're building a platform that seamlessly integrates into your life, making it easier than ever to attend services, engage with fellow believers, and find guidance whenever you need it.
+                </p>
+                <p class="font-semibold text-indigo-700">
+                    For individuals seeking deeper meaning. For churches aiming to connect and grow. Soapbox is for you.
+                </p>
+            </div>
         </div>
     </section>
 
-    <section id="features" class="section-padding bg-gray-50">
+    <section id="features" class="section-padding bg-gray-100">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Here's What You Can Look Forward To</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-16 text-center">Here's What You Can Look Forward To</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <div class="placeholder-icon mx-auto">ATT</div> <h3 class="text-xl font-semibold text-gray-900 mb-2">Attend & Engage, Anywhere</h3>
-                    <p class="text-gray-700">
+                <div class="feature-card">
+                    <div class="cool-icon">⛪</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Attend & Engage, Anywhere</h3>
+                    <p class="text-gray-600 text-sm">
                         Check in to local church services or attend virtually. Never miss a sermon or a chance to connect with your home church.
                     </p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <div class="placeholder-icon mx-auto">COM</div> <h3 class="text-xl font-semibold text-gray-900 mb-2">Your Spiritual Community Hub</h3>
-                    <p class="text-gray-700">
+                <div class="feature-card">
+                    <div class="cool-icon">💬</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Your Spiritual Community Hub</h3>
+                    <p class="text-gray-600 text-sm">
                         Join vibrant discussions, share prayer requests, and build lasting relationships within a dedicated, faith-centered social space.
                     </p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <div class="placeholder-icon mx-auto">24/7</div> <h3 class="text-xl font-semibold text-gray-900 mb-2">24/7 Spiritual Guidance</h3>
-                    <p class="text-gray-700">
+                <div class="feature-card">
+                    <div class="cool-icon">🙏</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">24/7 Spiritual Guidance</h3>
+                    <p class="text-gray-600 text-sm">
                         Access confidential prayer, pastoral care, and spiritual guidance from vetted pastors and faith leaders, anytime.
                     </p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <div class="placeholder-icon mx-auto">GRW</div> <h3 class="text-xl font-semibold text-gray-900 mb-2">Grow & Get Rewarded</h3>
-                    <p class="text-gray-700">
+                <div class="feature-card">
+                    <div class="cool-icon">🌟</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Grow & Get Rewarded</h3>
+                    <p class="text-gray-600 text-sm">
                         Make your faith journey interactive! Earn points, unlock achievements, and see your progress for engagement and learning.
                     </p>
                 </div>
@@ -131,14 +174,14 @@
         </div>
     </section>
 
-    <section class="section-padding bg-blue-600 text-white">
+    <section class="section-padding bg-gradient-to-br from-indigo-600 to-purple-700 text-white">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Empowering Churches. Engaging Congregations.</h2>
-            <p class="text-lg max-w-3xl mx-auto mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">Empowering Churches. Engaging Congregations.</h2>
+            <p class="text-lg text-indigo-100 max-w-3xl mx-auto mb-10">
                 Soapbox isn't just for individuals. We provide powerful, intuitive tools for churches to expand their reach, deepen member engagement, manage virtual services, facilitate giving, and understand their community's needs better.
             </p>
             <button onclick="showChurchLeaderModal()"
-                    class="bg-white text-blue-600 px-8 py-3 rounded-md font-semibold shadow-md hover:bg-gray-100 transition duration-300">
+                    class="bg-white text-indigo-600 px-10 py-3.5 rounded-lg font-bold shadow-xl hover:bg-gray-100 transition duration-300 text-base transform hover:scale-105">
                 Church Leaders: Learn More
             </button>
         </div>
@@ -146,75 +189,76 @@
 
     <section class="section-padding bg-white">
         <div class="container mx-auto px-6 text-center">
-            <blockquote class="text-xl md:text-2xl italic text-gray-700 max-w-3xl mx-auto">
-                "Our vision for Soapbox is to foster a world where everyone can easily access spiritual nourishment, build strong faith communities, and feel supported on their unique journey."
-                <cite class="block not-italic text-base text-gray-600 mt-4">- The Soapbox Team</cite>
+            <blockquote class="text-xl md:text-2xl italic text-gray-700 max-w-3xl mx-auto relative">
+                <span class="absolute -top-4 -left-4 text-6xl text-indigo-200 opacity-50 font-serif">“</span>
+                Our vision for Soapbox is to foster a world where everyone can easily access spiritual nourishment, build strong faith communities, and feel supported on their unique journey.
+                <span class="absolute -bottom-4 -right-4 text-6xl text-indigo-200 opacity-50 font-serif">”</span>
+                <cite class="block not-italic text-base text-gray-600 mt-6">- The Soapbox Team</cite>
             </blockquote>
         </div>
     </section>
 
-    <section class="section-padding hero-bg">
+    <section class="section-padding bg-gray-100">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Get Ready! Soapbox is Launching Soon on iOS!</h2>
-            <img src="https://placehold.co/200x60/e0e0e0/757575?text=App+Store+Badge" alt="Coming soon to iOS App Store" class="mx-auto mb-8 h-12 md:h-16" onerror="this.src='https://placehold.co/200x60/cccccc/757575?text=App+Store+Coming+Soon'; this.onerror=null;">
-            <p class="text-lg text-gray-700 mb-6 max-w-xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Get Ready! Soapbox is Launching Soon on iOS!</h2>
+            <img src="https://placehold.co/220x70/A5B4FC/3730A3?text=App+Store+Badge&font=inter" alt="Coming soon to iOS App Store" class="mx-auto mb-10 h-14 md:h-16 rounded-md shadow-lg" onerror="this.src='https://placehold.co/220x70/cccccc/757575?text=App+Store+Coming+Soon'; this.onerror=null;">
+            <p class="text-lg text-gray-700 mb-8 max-w-xl mx-auto">
                 Don't miss our launch! Sign up now to be the first to know when Soapbox goes live. You'll get exclusive updates, sneak peeks, and maybe even an early bird surprise!
             </p>
-            <form action="#" method="POST" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+            <form action="#" method="POST" class="max-w-lg mx-auto flex flex-col sm:flex-row gap-3 items-center">
                 <input type="email" name="email_final" placeholder="Enter your email address" required
-                       class="flex-grow px-4 py-3 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none shadow-sm text-gray-900" />
+                       class="flex-grow px-4 py-3 input-cool shadow-sm text-gray-900 w-full sm:w-auto" />
                 <button type="submit"
-                        class="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold shadow-md cta-button">
+                        class="primary-cta-button text-white px-8 py-3.5 rounded-lg font-bold shadow-xl w-full sm:w-auto text-base">
                     Keep Me Updated!
                 </button>
             </form>
         </div>
     </section>
 
-    <footer class="bg-gray-800 text-gray-300 py-12">
+    <footer class="bg-gray-900 text-gray-400 py-16">
         <div class="container mx-auto px-6 text-center">
-            <div class="mb-4">
-                <a href="#" class="px-3 hover:text-white">Privacy Policy</a>
-                <span class="text-gray-500">|</span>
-                <a href="#" class="px-3 hover:text-white">Terms of Service</a>
+            <div class="mb-6">
+                <a href="#" class="px-4 hover:text-indigo-300">Privacy Policy</a>
+                <span class="text-gray-600">|</span>
+                <a href="#" class="px-4 hover:text-indigo-300">Terms of Service</a>
             </div>
-            <div class="mb-4">
-                <a href="#" class="px-2 hover:text-white">Facebook</a>
-                <a href="#" class="px-2 hover:text-white">Instagram</a>
-                <a href="#" class="px-2 hover:text-white">X (Twitter)</a>
+            <div class="mb-6 space-x-6">
+                <a href="#" class="text-2xl hover:text-indigo-300">FB</a> <a href="#" class="text-2xl hover:text-indigo-300">IG</a>
+                <a href="#" class="text-2xl hover:text-indigo-300">X</a>
             </div>
             <p>&copy; <span id="currentYear"></span> Soapbox. All Rights Reserved.</p>
-            <p class="text-sm text-gray-500 mt-1">Contact: <a href="mailto:hello@soapboxapp.com" class="hover:text-white">hello@soapboxapp.com</a></p>
+            <p class="text-sm text-gray-500 mt-2">Contact: <a href="mailto:hello@soapboxapp.com" class="hover:text-indigo-300">hello@soapboxapp.com</a></p>
         </div>
     </footer>
 
-    <div id="churchLeaderModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
-        <div class="bg-white p-8 md:p-12 rounded-lg shadow-2xl max-w-lg w-full transform transition-all scale-95 opacity-0" id="modalDialog">
+    <div id="churchLeaderModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden transition-opacity duration-300 ease-out opacity-0" data-state="closed">
+        <div class="bg-white p-8 md:p-10 rounded-xl shadow-2xl max-w-lg w-full transform transition-all duration-300 ease-out scale-95" id="modalDialog">
             <div class="flex justify-between items-center mb-6">
                 <h3 class="text-2xl font-bold text-gray-900">Church Leader Interest</h3>
-                <button onclick="hideChurchLeaderModal()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+                <button onclick="hideChurchLeaderModal()" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
             </div>
             <p class="text-gray-700 mb-6">
                 Thank you for your interest! Please provide your details, and we'll reach out with more information on how Soapbox can serve your church.
             </p>
-            <form action="#" method="POST">
-                <div class="mb-4">
+            <form action="#" method="POST" class="space-y-4">
+                <div>
                     <label for="pastorName" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
-                    <input type="text" id="pastorName" name="pastorName" required class="w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none shadow-sm text-gray-900">
+                    <input type="text" id="pastorName" name="pastorName" required class="w-full input-cool">
                 </div>
-                <div class="mb-4">
+                <div>
                     <label for="churchName" class="block text-sm font-medium text-gray-700 mb-1">Church Name</label>
-                    <input type="text" id="churchName" name="churchName" required class="w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none shadow-sm text-gray-900">
+                    <input type="text" id="churchName" name="churchName" required class="w-full input-cool">
                 </div>
-                <div class="mb-4">
+                <div>
                     <label for="churchEmail" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                    <input type="email" id="churchEmail" name="churchEmail" required class="w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none shadow-sm text-gray-900">
+                    <input type="email" id="churchEmail" name="churchEmail" required class="w-full input-cool">
                 </div>
-                <div class="mb-6">
+                <div>
                     <label for="churchCityState" class="block text-sm font-medium text-gray-700 mb-1">City / State</label>
-                    <input type="text" id="churchCityState" name="churchCityState" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none shadow-sm text-gray-900">
+                    <input type="text" id="churchCityState" name="churchCityState" class="w-full input-cool">
                 </div>
-                <button type="submit" class="w-full bg-blue-600 text-white px-6 py-3 rounded-md font-semibold shadow-md cta-button">
+                <button type="submit" class="w-full secondary-cta-button text-white px-6 py-3 rounded-lg font-semibold shadow-md text-base">
                     Submit Interest
                 </button>
             </form>
@@ -231,28 +275,34 @@
             churchLeaderModal.classList.remove('hidden');
             // Trigger reflow to enable transition
             churchLeaderModal.offsetHeight;
-            modalDialog.classList.remove('scale-95', 'opacity-0');
-            modalDialog.classList.add('scale-100', 'opacity-100');
+            churchLeaderModal.classList.remove('opacity-0');
+            churchLeaderModal.classList.add('opacity-100');
+            modalDialog.classList.remove('scale-95');
+            modalDialog.classList.add('scale-100');
+            churchLeaderModal.dataset.state = 'opened';
         }
 
         function hideChurchLeaderModal() {
-            modalDialog.classList.add('scale-95', 'opacity-0');
-            modalDialog.classList.remove('scale-100', 'opacity-100');
+            modalDialog.classList.remove('scale-100');
+            modalDialog.classList.add('scale-95');
+            churchLeaderModal.classList.remove('opacity-100');
+            churchLeaderModal.classList.add('opacity-0');
             setTimeout(() => {
                 churchLeaderModal.classList.add('hidden');
+                churchLeaderModal.dataset.state = 'closed';
             }, 300); // Match transition duration
         }
 
         // Close modal if escape key is pressed
         window.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape' && !churchLeaderModal.classList.contains('hidden')) {
+            if (event.key === 'Escape' && churchLeaderModal.dataset.state === 'opened') {
                 hideChurchLeaderModal();
             }
         });
 
         // Close modal if backdrop is clicked
         churchLeaderModal.addEventListener('click', function(event) {
-            if (event.target === churchLeaderModal) {
+            if (event.target === churchLeaderModal && churchLeaderModal.dataset.state === 'opened') {
                 hideChurchLeaderModal();
             }
         });
@@ -264,7 +314,6 @@
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    // Calculate offset for fixed navbar
                     const navbarHeight = document.querySelector('nav').offsetHeight;
                     const elementPosition = targetElement.getBoundingClientRect().top;
                     const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
