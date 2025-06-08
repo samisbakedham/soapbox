@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soapbox - Coming Soon!</title>
+    <title>Soapbox - The Future of Faith Engagement - Coming Soon!</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth; /* For smooth scrolling on anchor links */
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         .hero-gradient {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Indigo to Purple gradient */
@@ -44,15 +46,15 @@
         }
         .feature-card {
             background-color: white;
-            border-radius: 1rem; /* More rounded */
+            border-radius: 1rem;
             padding: 2rem;
             text-align: center;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.07), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.15), 0 10px 15px -5px rgba(0, 0, 0, 0.05);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1), 0 10px 15px -5px rgba(0, 0, 0, 0.04);
         }
         .cool-icon {
             display: flex;
@@ -84,32 +86,98 @@
         .nav-link:hover {
             color: #6366F1; /* Indigo */
         }
+        .nav-active {
+            color: #6366F1;
+            font-weight: 700;
+        }
+        .sub-heading {
+            font-size: 1.125rem; /* text-lg */
+            color: #4B5563; /* gray-600 */
+            margin-bottom: 2rem;
+            max-width: 48rem; /* max-w-2xl */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .accordion-button {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 1rem 1.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1F2937; /* gray-800 */
+            background-color: #F9FAFB; /* gray-50 */
+            border: 1px solid #E5E7EB; /* gray-200 */
+            border-radius: 0.5rem;
+            text-align: left;
+            transition: background-color 0.2s ease;
+        }
+        .accordion-button:hover {
+            background-color: #F3F4F6; /* gray-100 */
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            background-color: white;
+            border: 1px solid #E5E7EB; /* gray-200 */
+            border-top: none;
+            border-radius: 0 0 0.5rem 0.5rem;
+            padding: 0 1.5rem;
+        }
+        .accordion-content.open {
+            padding: 1.5rem 1.5rem;
+        }
+        .accordion-button .icon::before {
+            content: '+';
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .accordion-button.open .icon::before {
+            transform: rotate(45deg);
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased">
 
     <nav class="bg-white/80 backdrop-blur-md shadow-md fixed w-full z-20 top-0">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Soapbox</a>
-            <div>
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#hero" class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Soapbox</a>
+            <div class="hidden md:flex space-x-2 items-center">
+                <a href="#why-soapbox" class="text-gray-700 nav-link px-3 py-2 rounded-md text-sm font-semibold">Why Soapbox?</a>
                 <a href="#features" class="text-gray-700 nav-link px-3 py-2 rounded-md text-sm font-semibold">Features</a>
-                <a href="#signup" class="secondary-cta-button text-white px-5 py-2.5 rounded-lg text-sm font-semibold ml-3 shadow-md">Get Notified</a>
+                <a href="#for-churches" class="text-gray-700 nav-link px-3 py-2 rounded-md text-sm font-semibold">For Churches</a>
+                <a href="#faq" class="text-gray-700 nav-link px-3 py-2 rounded-md text-sm font-semibold">FAQ</a>
+                <a href="#signup-final" class="secondary-cta-button text-white px-5 py-2.5 rounded-lg text-sm font-semibold ml-3 shadow-md">Get Notified</a>
             </div>
+            <div class="md:hidden">
+                <button id="mobileMenuButton" class="text-gray-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="md:hidden hidden bg-white shadow-lg py-2">
+            <a href="#why-soapbox" class="block text-gray-700 nav-link px-4 py-2 text-sm hover:bg-gray-100">Why Soapbox?</a>
+            <a href="#features" class="block text-gray-700 nav-link px-4 py-2 text-sm hover:bg-gray-100">Features</a>
+            <a href="#for-churches" class="block text-gray-700 nav-link px-4 py-2 text-sm hover:bg-gray-100">For Churches</a>
+            <a href="#faq" class="block text-gray-700 nav-link px-4 py-2 text-sm hover:bg-gray-100">FAQ</a>
+            <a href="#signup-final" class="block text-indigo-600 px-4 py-3 text-sm font-semibold hover:bg-indigo-50">Get Notified</a>
         </div>
     </nav>
 
-    <header class="hero-gradient pt-36 pb-20 md:pt-48 md:pb-28 text-center text-white">
+    <header id="hero" class="hero-gradient pt-36 pb-20 md:pt-48 md:pb-28 text-center text-white">
         <div class="container mx-auto px-6">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
                 Connect Deeper. <span class="block md:inline">Grow Stronger.</span>
             </h1>
             <h2 class="text-xl md:text-2xl text-indigo-100 mb-10 max-w-3xl mx-auto">
-                Soapbox is the revolutionary iOS app to engage with your church, connect with a vibrant faith community, access 24/7 spiritual guidance, and make your spiritual journey more rewarding.
+                Soapbox is the revolutionary iOS app designed to seamlessly connect you with your church, foster a vibrant faith community, provide 24/7 spiritual guidance, and make your spiritual journey uniquely rewarding.
             </h2>
-            <div id="signup" class="max-w-lg mx-auto">
-                <p class="text-indigo-50 mb-4 font-semibold text-lg">Be the first to experience Soapbox!</p>
+            <div id="signup-hero" class="max-w-lg mx-auto">
+                <p class="text-indigo-50 mb-4 font-semibold text-lg">Be the first to experience the future of faith engagement!</p>
                 <form action="#" method="POST" class="flex flex-col sm:flex-row gap-3 items-center">
-                    <input type="email" name="email" placeholder="Enter your email address" required
+                    <input type="email" name="email_hero" placeholder="Enter your email address" required
                            class="flex-grow px-4 py-3 input-cool shadow-sm text-gray-900 w-full sm:w-auto" />
                     <button type="submit"
                             class="primary-cta-button text-white px-8 py-3.5 rounded-lg font-bold shadow-xl w-full sm:w-auto text-base">
@@ -121,113 +189,262 @@
         </div>
     </header>
 
-    <section class="section-padding bg-white">
+    <section id="why-soapbox" class="section-padding bg-white">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Rediscover Connection in a Busy World</h2>
-            <div class="max-w-3xl mx-auto space-y-5 text-lg text-gray-700">
-                <p>
-                    In today's fast-paced life, staying consistently connected to your faith community and finding meaningful spiritual support can be a challenge.
-                </p>
-                <p>
-                    Soapbox bridges this gap. We're building a platform that seamlessly integrates into your life, making it easier than ever to attend services, engage with fellow believers, and find guidance whenever you need it.
-                </p>
-                <p class="font-semibold text-indigo-700">
-                    For individuals seeking deeper meaning. For churches aiming to connect and grow. Soapbox is for you.
-                </p>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Soapbox? The Spark You've Been Missing.</h2>
+            <p class="sub-heading">
+                Life is demanding. Finding consistent, meaningful connection with your faith and community shouldn't add to the stress. Soapbox is meticulously designed to be your intuitive, all-in-one spiritual companion.
+            </p>
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto text-left">
+                <div class="p-6 bg-gray-50 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold text-indigo-700 mb-2">For the Modern Believer</h3>
+                    <p class="text-gray-600 text-sm">You're busy, tech-savvy, and seek authentic connection. Soapbox meets you where you are, offering flexibility without sacrificing depth. Attend services live or on-demand, join interest-based groups, and access support anytime, anywhere.</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold text-indigo-700 mb-2">Bridge Digital & Physical</h3>
+                    <p class="text-gray-600 text-sm">We believe technology should enhance, not replace, real-world community. Use Soapbox to check-in to physical services, coordinate local group meetups, and stay connected with your church family throughout the week.</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold text-indigo-700 mb-2">A Platform with Purpose</h3>
+                    <p class="text-gray-600 text-sm">Soapbox is more than an app; it's a movement to revitalize faith engagement. We're committed to fostering positive, respectful interaction and providing genuine support for your spiritual growth.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="features" class="section-padding bg-gray-100">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-16 text-center">Here's What You Can Look Forward To</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="feature-card">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">Features That Inspire & Connect</h2>
+            <p class="sub-heading text-center">
+                Every aspect of Soapbox is crafted to enrich your spiritual life and community bonds. Discover a new way to engage.
+            </p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-10">
+                <div class="feature-card p-8">
                     <div class="cool-icon">⛪</div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Attend & Engage, Anywhere</h3>
-                    <p class="text-gray-600 text-sm">
-                        Check in to local church services or attend virtually. Never miss a sermon or a chance to connect with your home church.
-                    </p>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-3">Attend & Engage, Anywhere</h3>
+                    <p class="text-gray-600 mb-4">Whether you're at home, traveling, or unable to attend in person, Soapbox brings your church to you. Seamlessly check-in to physical services or join high-quality virtual streams.</p>
+                    <ul class="text-left text-gray-600 space-y-2 text-sm list-disc list-inside">
+                        <li>Live stream services with interactive chat.</li>
+                        <li>Access sermon archives and notes.</li>
+                        <li>Easy physical check-in for attendance tracking.</li>
+                        <li>Set reminders for services and events.</li>
+                    </ul>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card p-8">
                     <div class="cool-icon">💬</div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Your Spiritual Community Hub</h3>
-                    <p class="text-gray-600 text-sm">
-                        Join vibrant discussions, share prayer requests, and build lasting relationships within a dedicated, faith-centered social space.
-                    </p>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-3">Your Spiritual Community Hub</h3>
+                    <p class="text-gray-600 mb-4">Connect with like-minded individuals from your church and beyond. Share, support, and grow together in a safe and moderated environment.</p>
+                    <ul class="text-left text-gray-600 space-y-2 text-sm list-disc list-inside">
+                        <li>Public and private discussion forums.</li>
+                        <li>Create or join interest-based small groups.</li>
+                        <li>Direct messaging for one-on-one connections.</li>
+                        <li>Share prayer requests and testimonies.</li>
+                    </ul>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card p-8">
                     <div class="cool-icon">🙏</div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">24/7 Spiritual Guidance</h3>
-                    <p class="text-gray-600 text-sm">
-                        Access confidential prayer, pastoral care, and spiritual guidance from vetted pastors and faith leaders, anytime.
-                    </p>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-3">24/7 Spiritual Guidance</h3>
+                    <p class="text-gray-600 mb-4">Life's questions and challenges don't keep office hours. Access confidential, compassionate support from vetted pastors and faith leaders whenever you need it.</p>
+                    <ul class="text-left text-gray-600 space-y-2 text-sm list-disc list-inside">
+                        <li>Secure and private chat/call options.</li>
+                        <li>Network of carefully vetted, qualified guides.</li>
+                        <li>Support for prayer, spiritual questions, and encouragement.</li>
+                        <li>Referrals to further resources when needed.</li>
+                    </ul>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card p-8">
                     <div class="cool-icon">🌟</div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Grow & Get Rewarded</h3>
-                    <p class="text-gray-600 text-sm">
-                        Make your faith journey interactive! Earn points, unlock achievements, and see your progress for engagement and learning.
-                    </p>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-3">Grow & Get Rewarded</h3>
+                    <p class="text-gray-600 mb-4">Make your faith journey interactive and motivating! Our unique gamification system encourages consistent engagement, learning, and positive participation.</p>
+                    <ul class="text-left text-gray-600 space-y-2 text-sm list-disc list-inside">
+                        <li>Earn points for attendance, study, and interaction.</li>
+                        <li>Unlock badges and achievements for milestones.</li>
+                        <li>Optional leaderboards for friendly encouragement.</li>
+                        <li>Personalized progress tracking and spiritual goals.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="how-it-works" class="section-padding bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Getting Started is Simple</h2>
+            <p class="sub-heading">
+                We've designed Soapbox to be intuitive and welcoming from the moment you join.
+            </p>
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-12">
+                <div class="text-center">
+                    <div class="p-4 bg-indigo-100 rounded-full inline-block mb-4">
+                        <img src="https://placehold.co/60x60/6366F1/FFFFFF?text=1&font=inter" alt="Step 1" class="rounded-full h-12 w-12 md:h-16 md:w-16">
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Download & Sign Up</h3>
+                    <p class="text-gray-600 text-sm">Soapbox will be available on the iOS App Store. Create your secure account in minutes.</p>
+                </div>
+                <div class="text-center">
+                     <div class="p-4 bg-indigo-100 rounded-full inline-block mb-4">
+                        <img src="https://placehold.co/60x60/6366F1/FFFFFF?text=2&font=inter" alt="Step 2" class="rounded-full h-12 w-12 md:h-16 md:w-16">
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Find Your Community</h3>
+                    <p class="text-gray-600 text-sm">Connect with your local church or explore other communities and groups that resonate with you.</p>
+                </div>
+                <div class="text-center">
+                     <div class="p-4 bg-indigo-100 rounded-full inline-block mb-4">
+                        <img src="https://placehold.co/60x60/6366F1/FFFFFF?text=3&font=inter" alt="Step 3" class="rounded-full h-12 w-12 md:h-16 md:w-16">
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Engage & Grow</h3>
+                    <p class="text-gray-600 text-sm">Participate in services, discussions, access guidance, and watch your spiritual journey flourish.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section-padding bg-gradient-to-br from-indigo-600 to-purple-700 text-white">
+    <section id="for-churches" class="section-padding bg-gradient-to-br from-indigo-600 to-purple-700 text-white">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8">Empowering Churches. Engaging Congregations.</h2>
-            <p class="text-lg text-indigo-100 max-w-3xl mx-auto mb-10">
-                Soapbox isn't just for individuals. We provide powerful, intuitive tools for churches to expand their reach, deepen member engagement, manage virtual services, facilitate giving, and understand their community's needs better.
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Partner with Soapbox: Amplify Your Ministry</h2>
+            <p class="text-lg text-indigo-100 max-w-3xl mx-auto mb-12">
+                Soapbox is built to be a powerful ally for churches seeking to thrive in the digital age. We offer intuitive tools to expand your reach, deepen congregation engagement, streamline virtual ministry, and foster greater stewardship.
             </p>
-            <button onclick="showChurchLeaderModal()"
-                    class="bg-white text-indigo-600 px-10 py-3.5 rounded-lg font-bold shadow-xl hover:bg-gray-100 transition duration-300 text-base transform hover:scale-105">
-                Church Leaders: Learn More
-            </button>
+            <div class="grid md:grid-cols-3 gap-8 text-left mb-12">
+                <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
+                    <h3 class="text-xl font-semibold mb-2">Expand Your Reach</h3>
+                    <p class="text-indigo-200 text-sm">Connect with members beyond your physical walls and attract new seekers looking for a vibrant faith community online.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
+                    <h3 class="text-xl font-semibold mb-2">Deepen Engagement</h3>
+                    <p class="text-indigo-200 text-sm">Utilize interactive features, small group tools, and direct communication channels to keep your congregation connected and active.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
+                    <h3 class="text-xl font-semibold mb-2">Streamline Virtual Ministry</h3>
+                    <p class="text-indigo-200 text-sm">Manage live streams, content libraries, event promotion, and member communication all from one easy-to-use dashboard.</p>
+                </div>
+            </div>
+            <h3 class="text-2xl font-semibold mb-4">Key Tools for Church Partners:</h3>
+            <ul class="list-disc list-inside inline-block text-left text-indigo-100 mb-10 space-y-1">
+                <li>Customizable Church Profile & Space</li>
+                <li>Integrated Live Streaming & Video Hosting</li>
+                <li>Member Analytics & Engagement Reports</li>
+                <li>Secure Donation & Giving Platform</li>
+                <li>Event Management & Promotion Tools</li>
+                <li>Small Group Creation & Management</li>
+            </ul>
+            <div>
+                <button onclick="showChurchLeaderModal()"
+                        class="bg-white text-indigo-600 px-10 py-3.5 rounded-lg font-bold shadow-xl hover:bg-gray-100 transition duration-300 text-base transform hover:scale-105">
+                    Church Leaders: Express Interest
+                </button>
+            </div>
         </div>
     </section>
 
-    <section class="section-padding bg-white">
+    <section id="our-mission" class="section-padding bg-white">
         <div class="container mx-auto px-6 text-center">
-            <blockquote class="text-xl md:text-2xl italic text-gray-700 max-w-3xl mx-auto relative">
-                <span class="absolute -top-4 -left-4 text-6xl text-indigo-200 opacity-50 font-serif">“</span>
-                Our vision for Soapbox is to foster a world where everyone can easily access spiritual nourishment, build strong faith communities, and feel supported on their unique journey.
-                <span class="absolute -bottom-4 -right-4 text-6xl text-indigo-200 opacity-50 font-serif">”</span>
-                <cite class="block not-italic text-base text-gray-600 mt-6">- The Soapbox Team</cite>
-            </blockquote>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Mission & Values</h2>
+             <p class="sub-heading">
+                At Soapbox, we're driven by a passion to leverage technology for profound spiritual connection and community building.
+            </p>
+            <div class="max-w-3xl mx-auto text-left space-y-6 text-gray-700">
+                <p><strong class="text-indigo-700">Our Mission:</strong> To empower individuals and faith communities by providing accessible, engaging, and supportive digital experiences that deepen spiritual growth and foster meaningful connections.</p>
+                <p><strong class="text-indigo-700">Core Values:</strong></p>
+                <ul class="list-disc list-inside space-y-2 pl-4">
+                    <li><span class="font-semibold">Authenticity:</span> Fostering genuine interactions and spiritual exploration.</li>
+                    <li><span class="font-semibold">Inclusivity:</span> Creating a welcoming space for diverse expressions of faith (within partner guidelines).</li>
+                    <li><span class="font-semibold">Support:</span> Providing reliable and compassionate guidance and community care.</li>
+                    <li><span class="font-semibold">Innovation:</span> Continuously improving our platform to meet the evolving needs of users and churches.</li>
+                    <li><span class="font-semibold">Integrity:</span> Operating with transparency, security, and respect for all.</li>
+                </ul>
+                 <img src="https://placehold.co/700x400/E0E7FF/4338CA?text=Conceptual+Team+or+Community+Graphic&font=inter" alt="Our Team or Community" class="rounded-lg shadow-md mx-auto mt-8" onerror="this.src='https://placehold.co/700x400/cccccc/757575?text=Community+Focused'; this.onerror=null;">
+            </div>
         </div>
     </section>
 
-    <section class="section-padding bg-gray-100">
+    <section id="faq" class="section-padding bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-10 text-center">Frequently Asked Questions</h2>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div>
+                    <button class="accordion-button">
+                        <span>When is Soapbox launching?</span>
+                        <span class="icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="text-gray-700 py-2">We're working hard to bring Soapbox to the iOS App Store soon! Sign up for our newsletter to be the very first to know our official launch date and get access to early bird specials.</p>
+                    </div>
+                </div>
+                <div>
+                    <button class="accordion-button">
+                        <span>Is Soapbox free to use?</span>
+                        <span class="icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="text-gray-700 py-2">Soapbox will offer a robust free tier with access to many core features, including virtual service attendance and community forums. We will also have a premium subscription for users seeking advanced features, and tailored partnership plans for churches.</p>
+                    </div>
+                </div>
+                <div>
+                    <button class="accordion-button">
+                        <span>Which denominations or faiths is Soapbox for?</span>
+                        <span class="icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="text-gray-700 py-2">Soapbox is designed to be a versatile platform adaptable to various Christian denominations and potentially other faith communities that align with our core values of positive engagement and support. Participating churches will represent their specific traditions.</p>
+                    </div>
+                </div>
+                 <div>
+                    <button class="accordion-button">
+                        <span>How is my privacy protected?</span>
+                        <span class="icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="text-gray-700 py-2">Your privacy is a top priority. We are committed to implementing strong security measures, including end-to-end encryption for sensitive communications like 24/7 guidance. Our full Privacy Policy will be available at launch.</p>
+                    </div>
+                </div>
+                 <div>
+                    <button class="accordion-button">
+                        <span>How are pastors/guides for the 24/7 feature vetted?</span>
+                        <span class="icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="text-gray-700 py-2">Individuals providing 24/7 spiritual guidance will undergo a thorough vetting process, including background checks (where applicable and appropriate), credential verification, interviews, and training on our platform's guidelines and best practices for online pastoral care.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="signup-final" class="section-padding bg-white">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Get Ready! Soapbox is Launching Soon on iOS!</h2>
-            <img src="https://placehold.co/220x70/A5B4FC/3730A3?text=App+Store+Badge&font=inter" alt="Coming soon to iOS App Store" class="mx-auto mb-10 h-14 md:h-16 rounded-md shadow-lg" onerror="this.src='https://placehold.co/220x70/cccccc/757575?text=App+Store+Coming+Soon'; this.onerror=null;">
+            <img src="https://placehold.co/150x150/6366F1/FFFFFF?text=Soapbox+Logo&font=inter" alt="Soapbox Logo" class="mx-auto mb-8 h-24 w-24 rounded-full shadow-lg" onerror="this.src='https://placehold.co/150x150/cccccc/757575?text=S'; this.onerror=null;">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">The Next Chapter of Your Faith Journey Awaits.</h2>
             <p class="text-lg text-gray-700 mb-8 max-w-xl mx-auto">
-                Don't miss our launch! Sign up now to be the first to know when Soapbox goes live. You'll get exclusive updates, sneak peeks, and maybe even an early bird surprise!
+                Don't miss out on the app that's set to redefine spiritual engagement. Sign up for exclusive launch updates, sneak peeks, and become part of the founding Soapbox community.
             </p>
             <form action="#" method="POST" class="max-w-lg mx-auto flex flex-col sm:flex-row gap-3 items-center">
                 <input type="email" name="email_final" placeholder="Enter your email address" required
                        class="flex-grow px-4 py-3 input-cool shadow-sm text-gray-900 w-full sm:w-auto" />
                 <button type="submit"
                         class="primary-cta-button text-white px-8 py-3.5 rounded-lg font-bold shadow-xl w-full sm:w-auto text-base">
-                    Keep Me Updated!
+                    Count Me In!
                 </button>
             </form>
+             <p class="text-xs text-gray-500 mt-4">We respect your privacy. Unsubscribe anytime.</p>
         </div>
     </section>
 
     <footer class="bg-gray-900 text-gray-400 py-16">
         <div class="container mx-auto px-6 text-center">
             <div class="mb-6">
-                <a href="#" class="px-4 hover:text-indigo-300">Privacy Policy</a>
+                <a href="#privacy-policy-placeholder" class="px-4 hover:text-indigo-300 text-sm">Privacy Policy</a>
                 <span class="text-gray-600">|</span>
-                <a href="#" class="px-4 hover:text-indigo-300">Terms of Service</a>
+                <a href="#terms-placeholder" class="px-4 hover:text-indigo-300 text-sm">Terms of Service</a>
+                 <span class="text-gray-600">|</span>
+                <a href="#blog-placeholder" class="px-4 hover:text-indigo-300 text-sm">Blog (Coming Soon!)</a>
             </div>
             <div class="mb-6 space-x-6">
-                <a href="#" class="text-2xl hover:text-indigo-300">FB</a> <a href="#" class="text-2xl hover:text-indigo-300">IG</a>
-                <a href="#" class="text-2xl hover:text-indigo-300">X</a>
+                <a href="#" aria-label="Facebook" class="text-2xl hover:text-indigo-300">FB</a>
+                <a href="#" aria-label="Instagram" class="text-2xl hover:text-indigo-300">IG</a>
+                <a href="#" aria-label="Twitter X" class="text-2xl hover:text-indigo-300">X</a>
             </div>
-            <p>&copy; <span id="currentYear"></span> Soapbox. All Rights Reserved.</p>
+            <p>&copy; <span id="currentYear"></span> Soapbox App. All Rights Reserved.</p>
             <p class="text-sm text-gray-500 mt-2">Contact: <a href="mailto:hello@soapboxapp.com" class="hover:text-indigo-300">hello@soapboxapp.com</a></p>
         </div>
     </footer>
@@ -239,7 +456,7 @@
                 <button onclick="hideChurchLeaderModal()" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
             </div>
             <p class="text-gray-700 mb-6">
-                Thank you for your interest! Please provide your details, and we'll reach out with more information on how Soapbox can serve your church.
+                Thank you for your interest! Please provide your details, and we'll reach out with more information on how Soapbox can serve your church and discuss partnership opportunities.
             </p>
             <form action="#" method="POST" class="space-y-4">
                 <div>
@@ -270,11 +487,24 @@
 
         const churchLeaderModal = document.getElementById('churchLeaderModal');
         const modalDialog = document.getElementById('modalDialog');
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
 
         function showChurchLeaderModal() {
             churchLeaderModal.classList.remove('hidden');
-            // Trigger reflow to enable transition
-            churchLeaderModal.offsetHeight;
+            churchLeaderModal.offsetHeight; // Trigger reflow
             churchLeaderModal.classList.remove('opacity-0');
             churchLeaderModal.classList.add('opacity-100');
             modalDialog.classList.remove('scale-95');
@@ -290,29 +520,58 @@
             setTimeout(() => {
                 churchLeaderModal.classList.add('hidden');
                 churchLeaderModal.dataset.state = 'closed';
-            }, 300); // Match transition duration
+            }, 300);
         }
 
-        // Close modal if escape key is pressed
         window.addEventListener('keydown', function(event) {
             if (event.key === 'Escape' && churchLeaderModal.dataset.state === 'opened') {
                 hideChurchLeaderModal();
             }
         });
 
-        // Close modal if backdrop is clicked
         churchLeaderModal.addEventListener('click', function(event) {
             if (event.target === churchLeaderModal && churchLeaderModal.dataset.state === 'opened') {
                 hideChurchLeaderModal();
             }
         });
 
-        // Smooth scroll for navigation links
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        // Smooth scroll and active nav link highlighting
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+        const sections = document.querySelectorAll('section[id], header[id]');
+
+        function changeNav(targetId) {
+            navLinks.forEach(link => {
+                link.classList.remove('nav-active');
+                if (link.getAttribute('href') === `#${targetId}`) {
+                    link.classList.add('nav-active');
+                }
+            });
+        }
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.4 // Adjust this value for when the section is considered "active"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    changeNav(entry.target.id);
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+
+        navLinks.forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
                 if (targetElement) {
                     const navbarHeight = document.querySelector('nav').offsetHeight;
                     const elementPosition = targetElement.getBoundingClientRect().top;
@@ -322,6 +581,32 @@
                         top: offsetPosition,
                         behavior: "smooth"
                     });
+                    // Manually set active link on click for immediate feedback
+                    changeNav(targetId);
+                }
+            });
+        });
+
+        // Accordion functionality for FAQ
+        const accordionButtons = document.querySelectorAll('.accordion-button');
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                button.classList.toggle('open');
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    content.classList.remove('open');
+                } else {
+                    // Close other open accordions
+                    document.querySelectorAll('.accordion-content.open').forEach(openContent => {
+                        if (openContent !== content) {
+                            openContent.style.maxHeight = null;
+                            openContent.classList.remove('open');
+                            openContent.previousElementSibling.classList.remove('open');
+                        }
+                    });
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    content.classList.add('open');
                 }
             });
         });
